@@ -105,10 +105,15 @@ local cv_deathdelay = CV_RegisterVar{
 	flags = CV_NETVAR,
 	PossibleValue = {MIN=1, MAX=TICRATE*10}
 }
+local cv_healamount = CV_RegisterVar{
+	name = "hpmod_healamount",
+	defaultvalue = 12,
+	flags = CV_NETVAR,
+	PossibleValue = {MIN = 1, MAX = INT32_MAX}
+}
 
 local LOW_HP_LEVEL = 20
 local LAG_HP_DRAIN = 3
-local HEAL_AMOUNT = 5
 
 local HPBARWIDTH = 100
 
@@ -473,7 +478,7 @@ local function hpmodThink()
 		and p.kartstuff[k_itemtype] ~= 0
 		and p.kartstuff[k_itemheld] ~= 1 then
 			K_StripItems(p)
-			hpmod_healhp(p, HEAL_AMOUNT)
+			hpmod_healhp(p, cv_healamount.value)
 			local mo = nil
 			if p.mo and p.mo.valid then
 				mo = p.mo
