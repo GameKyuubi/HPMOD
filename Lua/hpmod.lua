@@ -1029,7 +1029,7 @@ local function hpmodHud(v, p)
 	end
 	
 	if not splitscreen and cv_itemabosrb.value and p.kartstuff[k_itemtype] ~= 0 and p.kartstuff[k_itemheld] ~= 1 then
-		v.drawString(10, 56, "Custom 1 - Drop item & +5 HP", V_ALLOWLOWERCASE|V_SNAPTOTOP|V_SNAPTOLEFT, "small")
+		v.drawString(10, 56, "Custom 2 - Absorb item " + cv_healamount.value + "hp", V_ALLOWLOWERCASE|V_SNAPTOTOP|V_SNAPTOLEFT, "small")
 	end
 
 end
